@@ -5,6 +5,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-sf-bold: "SF Arabic Bold", sans-serif;
+  --font-sf-med: "SF Arabic Medium", sans-serif;
+  --font-sf-light: "SF Arabic Light", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,7 +20,13 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+button:hover {
+  scale: 95%;
 }
 
 @layer utilities {
