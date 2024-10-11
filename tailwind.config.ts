@@ -47,6 +47,26 @@ const config: Config = {
         sfMed: "var(--font-sf-med)",
         sfLight: "var(--font-sf-light)",
       },
+      backgroundImage: {
+        // گرادیان سبز به سیاه جنگلی (طبیعت تاریک)
+        "forest-dark":
+          "linear-gradient(135deg, #4f7942, #34552e, #233e21, #0a1b0d)",
+
+        // گرادیان سبز به خاکستری (سبز طبیعی به خاکستری)
+        "forest-ash":
+          "linear-gradient(135deg, #4f7942, #466d3b, #8c8c8c, #0a0a0a)",
+
+        // گرادیان خاکستری صنعتی به شب (از خاکستری روشن به سیاهی شب)
+        "ash-dark":
+          "linear-gradient(135deg, #b0b0b0, #6e6e6e, #525252, #0a0a0a)",
+
+        // گرادیان سبز زیتونی به خاکستری دودی
+        "olive-smoke":
+          "linear-gradient(135deg, #3d6134, #466d3b, #6e6e6e, #3a3a3a)",
+
+        // گرادیان سبز همیشه‌سبز به خاکستری آهنی
+        "evergreen-iron": "linear-gradient(135deg, #1a321a, #466d3b, #2c2c2c)",
+      },
     },
   },
   plugins: [],

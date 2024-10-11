@@ -55,7 +55,7 @@ const Tweet: React.FC<{
   );
 
   return (
-    <div className="bg-ash-graphite p-2 border-t-1 border-l-1 border-ash-slate mb-4 rounded-3xl">
+    <div className="bg-ash-graphite w-96 p-2 border-1 border-ash-slate mb-4 rounded-3xl">
       <header className="flex items-center justify-between">
         <div className="flex items-center">
           <Image
@@ -76,7 +76,7 @@ const Tweet: React.FC<{
         </button>
       </header>
       <main>
-        <p className="bg-ash-slate mt-4  p-2 rounded-xl">{content}</p>
+        <p className="bg-ash-slate mt-4 p-2 rounded-xl">{content}</p>
         <ul className="flex justify-between items-center">
           {actions.map((action) => (
             <Action

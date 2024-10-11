@@ -21,25 +21,25 @@ const Header: React.FC = () => {
   const navbarLinks = [
     {
       id: 1,
-      title: "Home",
+      title: "خانه",
       href: "/",
       icon: <i className="fi fi-sr-house-blank" />,
     },
     {
       id: 2,
-      title: "Directs",
+      title: "صندوق",
       href: "/directs",
       icon: <i className="fi fi-sr-comment-dots" />,
     },
     {
       id: 3,
-      title: "Notification",
+      title: "اعلان ها",
       href: "/notifications",
       icon: <i className="fi fi-sr-bell" />,
     },
     {
       id: 4,
-      title: "Activities",
+      title: "فعالیت ها",
       href: "/activities",
       icon: <i className="fi fi-sr-heart" />,
     },
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
 
   const Search: React.FC = () => (
     <div
-      className={`bg-ash-graphite w-fit p-1 flex items-center border-2 transition-all duration-200 rounded-xl ${
+      className={`bg-ash-graphite sm:w-fit w-full justify-between p-1 flex items-center border-2 transition-all duration-200 rounded-xl ${
         isSearch ? " border-forest-base" : "border-ash-graphite"
       }`}
     >
@@ -64,10 +64,11 @@ const Header: React.FC = () => {
     </div>
   );
 
-  const NavLink: React.FC<{ href: string; icon: React.ReactNode }> = ({
-    href,
-    icon,
-  }) => {
+  const NavLink: React.FC<{
+    href: string;
+    icon: React.ReactNode;
+    title: string;
+  }> = ({ href, icon, title }) => {
     const pathname = usePathname();
     const isActive = pathname === href;
 
@@ -75,12 +76,13 @@ const Header: React.FC = () => {
       <li className="relative">
         <Link
           href={href}
-          className={`text-2xl ${isActive ? "text-forest-base cursor-default" : "text-ash-light"}`}
+          className={`text-2xl flex flex-col items-center ${isActive ? "text-forest-base cursor-default" : "text-ash-light"}`}
         >
           {icon}
+          <span className="text-base font-sfBold">{title}</span>
         </Link>
         {isActive && (
-          <span className="absolute left-1/2 transform -translate-x-1/2 bottom-0 w-1 top-5 h-1 bg-forest-base rounded-full mt-2"></span>
+          <span className="absolute left-1/2 sm:block hidden transform -translate-x-1/2 bottom-0 w-1 top-5 h-1 bg-forest-base rounded-full mt-2"></span>
         )}
       </li>
     );
@@ -111,17 +113,29 @@ const Header: React.FC = () => {
   );
 
   return (
-    <header className="flex items-center justify-between backdrop-blur-2xl fixed z-50 w-full px-4 py-3">
-      <div className="flex-1 flex justify-start">
-        <Search />
-      </div>
-      <div className="flex-1 flex justify-center">
-        <NavLinks />
-      </div>
-      <div className="flex-1 flex justify-end">
-        <UserAccount avatar={avatar} username="TheMeruLeo" />
-      </div>
-    </header>
+    <>
+      <header className="flex items-center justify-between backdrop-blur-2xl fixed z-50 w-full px-4 py-3">
+        <div className="flex-1 flex justify-start">
+          <Search />
+        </div>
+        <div className="flex-1 sm:flex hidden justify-center">
+          <NavLinks />
+        </div>
+        <div className="flex-1 hidden sm:flex justify-end">
+          <UserAccount avatar={avatar} username="TheMeruLeo" />
+        </div>
+      </header>
+      <nav className="flex sm:hidden list-none items-center bottom-0 justify-between backdrop-blur-2xl fixed z-50 w-full p-4">
+        {navbarLinks.map((link) => (
+          <NavLink
+            key={link.id}
+            href={link.href}
+            icon={link.icon}
+            title={link.title}
+          />
+        ))}
+      </nav>
+    </>
   );
 };
 
