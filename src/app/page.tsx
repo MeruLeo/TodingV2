@@ -4,6 +4,7 @@ import { fonts } from "./layout";
 import React from "react";
 import Tweet from "./components/tweet/Tweet";
 import MiniTweet from "./components/miniTweet/MiniTweet";
+import Head from "next/head";
 
 export default function Home() {
   const testUser = {
@@ -147,7 +148,7 @@ export default function Home() {
   const NewTweet: React.FC = ({}) => (
     <div className="bg-ash-iron sm:block hidden border-b-1 border-l-1 border-ash-slate p-4 rounded-[2rem]">
       <textarea
-        className="w-full h-32 p-2 rounded-lg focus:outline-none bg-transparent"
+        className="w-full h-32 p-2 resize-none rounded-lg focus:outline-none bg-transparent"
         placeholder="چه خبر ؟"
       ></textarea>
       <FileUploadInputs />
@@ -184,6 +185,30 @@ export default function Home() {
       timeAgo: "1d",
       content: "Mike Brown commented on your post: 'Great post!'",
     },
+    {
+      type: "comment",
+      username: "mike_brown",
+      fullName: "Mike Brown",
+      avatar: "/images/mike_avatar.png",
+      timeAgo: "1d",
+      content: "Mike Brown commented on your post: 'Great post!'",
+    },
+    {
+      type: "comment",
+      username: "mike_brown",
+      fullName: "Mike Brown",
+      avatar: "/images/mike_avatar.png",
+      timeAgo: "1d",
+      content: "Mike Brown commented on your post: 'Great post!'",
+    },
+    {
+      type: "comment",
+      username: "mike_brown",
+      fullName: "Mike Brown",
+      avatar: "/images/mike_avatar.png",
+      timeAgo: "1d",
+      content: "Mike Brown commented on your post: 'Great post!'",
+    },
   ];
 
   const RecentActivities: React.FC = () => {
@@ -208,57 +233,85 @@ export default function Home() {
   };
 
   return (
-    <main className="flex justify-between relative items-start top-24 w-full px-4 py-3">
-      <div className="flex-1 flex justify-start">
-        <div className="fixed flex justify-between items-center flex-col">
-          <ProfileCard
-            username={testUser.username}
-            avatar={testUser.avatar}
-            fullName={testUser.fullName}
-            bio={testUser.bio}
-            followers={testUser.followers}
-            following={testUser.following}
-          />
-          <MyTweets />
+    <>
+      <Head>
+        <title>تودینگ - خانه</title>
+      </Head>
+      <main className="flex h-fit justify-between relative pt-24 items-start w-full px-4">
+        <div className="flex-1 flex justify-start">
+          <div className="fixed flex justify-between items-center flex-col">
+            <ProfileCard
+              username={testUser.username}
+              avatar={testUser.avatar}
+              fullName={testUser.fullName}
+              bio={testUser.bio}
+              followers={testUser.followers}
+              following={testUser.following}
+            />
+            <MyTweets />
+          </div>
         </div>
-      </div>
-      <div className="flex-1 flex flex-col h-screen justify-start">
-        {/* <NewTweet avatar={testUser.avatar} username={testUser.username} /> */}
-        <Tweet
-          avatar={testUser.avatar}
-          fullName={testUser.fullName}
-          username={testUser.username}
-          content="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد"
-          timeAgo="۱ ساعت پیش"
-        />
-        <Tweet
-          avatar={testUser.avatar}
-          fullName={testUser.fullName}
-          username={testUser.username}
-          content="سلام و درود شبتون بخیر. خوش اومدید به تودینگ."
-          timeAgo="۱ ساعت پیش"
-        />
-        <Tweet
-          avatar={testUser.avatar}
-          fullName={testUser.fullName}
-          username={testUser.username}
-          content="سلام و درود شبتون بخیر. خوش اومدید به تودینگ."
-          timeAgo="۱ ساعت پیش"
-        />
-        <Tweet
-          avatar={testUser.avatar}
-          fullName={testUser.fullName}
-          username={testUser.username}
-          content="سلام و درود شبتون بخیر. خوش اومدید به تودینگ."
-          timeAgo="۱ ساعت پیش"
-        />
-      </div>
-      <div className="flex-1 flex justify-start">
-        <div className="fixed flex justify-between items-stretch mr-8 flex-col">
-          <NewTweet />
-          <RecentActivities />
+
+        <div className="flex-1 flex justify-center ml-8">
+          <ul>
+            <Tweet
+              tweetId="1"
+              avatar={testUser.avatar}
+              fullName={testUser.fullName}
+              username={testUser.username}
+              content="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد"
+              timeAgo="۱ ساعت پیش"
+            />
+            <Tweet
+              tweetId="1"
+              avatar={testUser.avatar}
+              fullName={testUser.fullName}
+              username={testUser.username}
+              content="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد"
+              timeAgo="۱ ساعت پیش"
+            />
+            <Tweet
+              tweetId="1"
+              avatar={testUser.avatar}
+              fullName={testUser.fullName}
+              username={testUser.username}
+              content="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد"
+              timeAgo="۱ ساعت پیش"
+            />
+            <Tweet
+              tweetId="2"
+              avatar={testUser.avatar}
+              fullName={testUser.fullName}
+              username={`user1`}
+              content="سلام و درود شبتون بخیر. خوش اومدید به تودینگ."
+              timeAgo="۱ ساعت پیش"
+            />
+            <Tweet
+              tweetId="3"
+              avatar={testUser.avatar}
+              fullName={testUser.fullName}
+              username={`user2`}
+              content="سلام و درود شبتون بخیر. خوش اومدید به تودینگ."
+              timeAgo="۱ ساعت پیش"
+            />
+            <Tweet
+              tweetId="4"
+              avatar={testUser.avatar}
+              fullName={testUser.fullName}
+              username={`user3`}
+              content="سلام و درود شبتون بخیر. خوش اومدید به تودینگ."
+              timeAgo="۱ ساعت پیش"
+            />
+          </ul>
         </div>
-      </div>
-    </main>
+
+        <div className="flex-1 flex justify-end">
+          <div className="fixed flex justify-between items-stretch flex-col">
+            <NewTweet />
+            <RecentActivities />
+          </div>
+        </div>
+      </main>
+    </>
   );
 }

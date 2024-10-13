@@ -32,10 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en" dir="rtl">
       <head>
-        <title>Toding</title>
+        <title>تودینگ</title>
       </head>
       <body
-        className={`${sfBold.variable} ${sfMed.variable} ${sfLight.variable} antialiased`}
+        className={`${sfBold.variable} ${sfMed.variable} ${sfLight.variable} antialiased min-h-screen`}
       >
         <Header />
         {children}

@@ -1,61 +1,39 @@
-import React from "react";
-import Image from "next/image";
+"use client";
 
-const Tweet: React.FC<{
+import Image from "next/image";
+import ContextMenu from "../contextMenu/ContextMenu";
+
+interface TweetProps {
+  tweetId: string;
   username: string;
   fullName: string;
   avatar: string;
   timeAgo: string;
   content: string;
-}> = ({ username, fullName, avatar, timeAgo, content }) => {
-  const actions = [
-    {
-      id: 1,
-      title: "پسند ها",
-      icon: <i className="fi fi-sr-heart flex justify-center items-center" />,
-      clickEvent: "click",
-    },
-    {
-      id: 2,
-      title: "نظرات",
-      icon: (
-        <i className="fi fi-sr-comments flex justify-center items-center"></i>
-      ),
-      clickEvent: "click",
-    },
-    {
-      id: 3,
-      title: "ذخیره شده ها",
-      icon: (
-        <i className="fi fi-sr-bookmark flex justify-center items-center"></i>
-      ),
-      clickEvent: "click",
-    },
-    {
-      id: 4,
-      title: "بازدید ها",
-      icon: <i className="fi fi-sr-eye flex justify-center items-center" />,
-      clickEvent: "click",
-    },
-  ];
-  const Action: React.FC<{
-    title: string;
-    icon: unknown;
-    clickEvent: string;
-  }> = ({ title, icon, clickEvent }) => (
-    <button
-      className={` font-sfBold m-2 ${clickEvent === "click" ? "text-forest-base" : "text-ash-iron"}`}
-    >
-      <span className="text-[0.5rem] text-ash-smoke">{title}</span>
-      <span className="text-xl text-ash-silver">{icon}</span>
-      <span className="text-sm bg-forest-base text-forest-midnight px-1 rounded-full">
-        ۳۴,۵۰۰
-      </span>
-    </button>
-  );
+}
+
+const Tweet: React.FC<TweetProps> = ({
+  tweetId,
+  username,
+  fullName,
+  avatar,
+  timeAgo,
+  content,
+}) => {
+  const handleEdit = () => {
+    alert("ویرایش توییت");
+  };
+
+  const handleDelete = () => {
+    alert("حذف توییت");
+  };
+
+  const handleCopyLink = () => {
+    alert("لینک توییت کپی شد");
+  };
 
   return (
-    <div className="bg-ash-graphite w-96 p-2 border-1 border-ash-slate mb-4 rounded-3xl">
+    <div className="bg-ash-graphite w-full open p-4 border border-ash-slate mb-4 rounded-3xl relative">
       <header className="flex items-center justify-between">
         <div className="flex items-center">
           <Image
@@ -71,22 +49,15 @@ const Tweet: React.FC<{
             <span className="text-sm text-gray-500">{timeAgo}</span>
           </div>
         </div>
-        <button>
-          <i className="fi fi-sr-circle-ellipsis text-ash-charcoal text-xl"></i>
-        </button>
+        <ContextMenu
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+          onCopyLink={handleCopyLink}
+        />
       </header>
+
       <main>
         <p className="bg-ash-slate mt-4 p-2 rounded-xl">{content}</p>
-        <ul className="flex justify-between items-center">
-          {actions.map((action) => (
-            <Action
-              key={action.id}
-              title={action.title}
-              clickEvent={action.clickEvent}
-              icon={action.icon}
-            />
-          ))}
-        </ul>
       </main>
     </div>
   );

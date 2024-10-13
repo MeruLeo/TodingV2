@@ -16,7 +16,7 @@ const MiniTweet: React.FC<{
   };
 
   return (
-    <div className="bg-ash-graphite p-2 border-t-1 border-l-1 border-ash-slate mb-2 rounded-3xl">
+    <div className="bg-ash-graphite p-2 open border-t-1 border-l-1 border-ash-slate mb-2 rounded-3xl">
       <header className="flex items-center justify-between">
         <div className="flex items-center">
           <div className="mr-2 flex flex-col">
