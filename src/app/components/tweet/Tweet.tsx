@@ -2,16 +2,9 @@
 
 import Image from "next/image";
 import ContextMenu from "../contextMenu/ContextMenu";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Divider,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardBody } from "@nextui-org/react";
 
 interface TweetProps {
-  tweetId: string;
   username: string;
   fullName: string;
   avatar: string;
@@ -20,7 +13,6 @@ interface TweetProps {
 }
 
 const Tweet: React.FC<TweetProps> = ({
-  tweetId,
   username,
   fullName,
   avatar,

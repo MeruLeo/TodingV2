@@ -1,13 +1,11 @@
 import React from "react";
-import Image from "next/image";
 
 const MiniTweet: React.FC<{
   username: string;
   fullName: string;
-  avatar: string;
   timeAgo: string;
   content: string;
-}> = ({ username, fullName, avatar, timeAgo, content }) => {
+}> = ({ username, fullName, timeAgo, content }) => {
   const truncateContent = (text: string, maxLength: number) => {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + "...";

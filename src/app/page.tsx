@@ -1,6 +1,5 @@
 import Image from "next/image";
 import avatarImg from "../public/me.jpg";
-import { fonts } from "./layout";
 import React from "react";
 import Tweet from "./components/tweet/Tweet";
 import MiniTweet from "./components/miniTweet/MiniTweet";
