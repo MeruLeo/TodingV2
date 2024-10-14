@@ -2,6 +2,13 @@
 
 import Image from "next/image";
 import ContextMenu from "../contextMenu/ContextMenu";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Divider,
+} from "@nextui-org/react";
 
 interface TweetProps {
   tweetId: string;
@@ -33,8 +40,8 @@ const Tweet: React.FC<TweetProps> = ({
   };
 
   return (
-    <div className="bg-ash-graphite w-full open p-4 border border-ash-slate mb-4 rounded-3xl relative">
-      <header className="flex items-center justify-between">
+    <Card className="bg-ash-graphite open text-right border border-ash-slate mb-4 rounded-3xl relative">
+      <CardHeader className="flex items-center justify-between">
         <div className="flex items-center">
           <Image
             src={avatar}
@@ -54,12 +61,14 @@ const Tweet: React.FC<TweetProps> = ({
           onDelete={handleDelete}
           onCopyLink={handleCopyLink}
         />
-      </header>
+      </CardHeader>
 
-      <main>
-        <p className="bg-ash-slate mt-4 p-2 rounded-xl">{content}</p>
-      </main>
-    </div>
+      <CardBody>
+        <p className="bg-ash-slate mt-4 p-4 text-justify rounded-xl">
+          {content}
+        </p>
+      </CardBody>
+    </Card>
   );
 };
 

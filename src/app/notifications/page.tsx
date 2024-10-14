@@ -12,8 +12,8 @@ interface NotificationProps {
   title: string;
   content: string;
   date: string;
-  iconSize?: string; // اندازه آیکون به صورت اختیاری
-  iconColor?: string; // رنگ آیکون به صورت اختیاری
+  iconSize?: string;
+  iconColor?: string;
 }
 
 const Notification: React.FC<NotificationProps> = ({
@@ -21,11 +21,11 @@ const Notification: React.FC<NotificationProps> = ({
   title,
   content,
   date,
-  iconSize = "w-12 h-12", // اندازه پیش‌فرض
-  iconColor = "text-forest-base", // رنگ پیش‌فرض
+  iconSize = "w-12 h-12",
+  iconColor = "text-forest-base",
 }) => (
   <Card
-    className="max-w-[400px] m-4 bg-ash-graphite border-1 border-ash-slate"
+    className="max-w-[400px] m-4 bg-ash-graphite border-1 rounded-3xl border-ash-slate"
     dir="rtl"
   >
     <CardHeader className="flex gap-3">
